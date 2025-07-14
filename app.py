@@ -1,7 +1,6 @@
 import streamlit as st
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
-import os
 
 # ✅ Set page config
 st.set_page_config(page_title="Agri Assistant", page_icon="🌾")
@@ -9,13 +8,17 @@ st.set_page_config(page_title="Agri Assistant", page_icon="🌾")
 # ✅ Set device (GPU if available, else CPU)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# ✅ Load model and tokenizer with Hugging Face token
+# ✅ Load model and tokenizer securely using Hugging Face token
 @st.cache_resource
 def load_model():
     model_id = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
-    hf_token = os.getenv("HF_TOKEN")  # Load from Streamlit secrets
-    tokenizer = AutoTokenizer.from_pretrained(model_id, token=hf_token)
-    model = AutoModelForCausalLM.from_pretrained(model_id, token=hf_token, torch_dtype=torch.float32).to(device)
+    hf_token = st.secrets["HF_TOKEN"]  # Load token securely from secrets
+    tokenizer = AutoTokenizer.from_pretrained(model_id, use_auth_token=hf_token)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_id,
+        use_auth_token=hf_token,
+        torch_dtype=torch.float32
+    ).to(device)
     return tokenizer, model
 
 tokenizer, model = load_model()
@@ -24,7 +27,7 @@ tokenizer, model = load_model()
 st.title("🌾 Agriculture AI Assistant (TinyLLaMA)")
 st.write("Ask me anything about farming, crops, fertilizers, pests, etc.")
 
-# ✅ Input
+# ✅ User input
 user_input = st.text_input("👨‍🌾 Enter your question:")
 
 if st.button("Get Answer") and user_input:
