@@ -85,6 +85,8 @@ Feedback collected from 10 users (farmers, students, volunteers) via direct use 
 ### **Average Rating**: `4.1 / 5`
 
 ---
+<img width="2559" height="1345" alt="image" src="https://github.com/user-attachments/assets/f36f1cae-8772-4197-930a-00fff78235d5" />
+
 
 ## 🚀 Future Roadmap
 
