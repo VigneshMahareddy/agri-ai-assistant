@@ -108,26 +108,12 @@ Feedback collected from 10 users (farmers, students, volunteers) via direct use 
 
 ---
 
-## 📈 Plan to Increase Adoption
-
-### **Initial Promotion**
-
-- Share in Telegram farmer communities  
-- Collaborate with agri YouTube creators for demos  
-- Demo at rural student hackathons
-
 ### **Free and Ethical Use**
 
 - Emphasize that it’s free, open, and safe  
 - Make legal disclaimers visible and friendly
 
-### **Community Engagement**
 
-- Open GitHub for contributions (add “good first issue”)  
-- Translate questions/responses for more reach  
-- Add farmer-focused examples to README
-
----
 
 ## 📌 Conclusion
 
