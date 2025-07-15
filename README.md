@@ -1,1 +1,0 @@
-# agri-ai-assistant
